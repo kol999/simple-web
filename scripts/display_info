@@ -13,8 +13,12 @@ fi
 TARGET_BKUP=index.bkup
 cp "$TARGET_FILE" "$TARGET_BKUP"
 
-sed -i '' 's/<\/body>//g' $TARGET_FILE 
-sed -i '' 's/<\/html>//g' $TARGET_FILE 
+echo TARGET_FILE IS $TARGET_FILE
+
+sed -i 's/<\/body>//g' $TARGET_FILE 
+sed -i 's/<\/html>//g' $TARGET_FILE 
+
+echo Line 1
 
 if [ ! $(grep 'APPLICATION_NAME' $TARGET_FILE) ]; then
 

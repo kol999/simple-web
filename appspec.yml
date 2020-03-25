@@ -22,6 +22,5 @@ hooks:
       runas: root
   ValidateService:
     - location: scripts/check_service
-      timeout: 300
-      runas: root 
+    - location: scripts/display_host
 
