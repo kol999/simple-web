@@ -16,7 +16,7 @@ cp "$TARGET_FILE" "$TARGET_BKUP"
 echo TARGET_FILE IS $TARGET_FILE
 
 public_ip=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
-host_name=$(curl http://169.254.169.254/latest/meta-data/local-hostname
+host_name=$(curl http://169.254.169.254/latest/meta-data/local-hostname) 
 instance_id=$(curl http://169.254.169.254/latest/meta-data/instanceId)
 
 sed -i 's/<\/body>//g' $TARGET_FILE 
@@ -36,6 +36,6 @@ if [ ! $(grep 'APPLICATION_NAME' $TARGET_FILE) ]; then
 fi
 
 echo "LIFECYCLE_EVENT:$LIFECYCLE_EVENT<br>">>$TARGET_FILE
-    echo "</div>">>$TARGET_FILE
+echo "</div>">>$TARGET_FILE
 echo "</body>">>$TARGET_FILE
 echo "</html>">>$TARGET_FILE

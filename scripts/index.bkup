@@ -53,4 +53,16 @@
 <div class='codedeploy'>
 </div>
 
+
+<div class='codedeploy'>
+<hr/>
+<h2>CodeDeploy Details</h2>
+<p>
+APPLICATION_NAME:<br>
+DEPLOYMENT_ID:<br>
+DEPLOYMENT_GROUP_NAME:<br>
+DEPLOYMENT_GROUP_ID:<br>
+LIFECYCLE_EVENT:<br>
+</div>
+</body>
 </html>
