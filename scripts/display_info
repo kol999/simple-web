@@ -15,21 +15,24 @@ cp "$TARGET_FILE" "$TARGET_BKUP"
 
 echo TARGET_FILE IS $TARGET_FILE
 
+public_ip=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
+host_name=$(curl http://169.254.169.254/latest/meta-data/local-hostname
+instance_id=$(curl http://169.254.169.254/latest/meta-data/instanceId)
+
 sed -i 's/<\/body>//g' $TARGET_FILE 
 sed -i 's/<\/html>//g' $TARGET_FILE 
-
-echo Line 1
 
 if [ ! $(grep 'APPLICATION_NAME' $TARGET_FILE) ]; then
 
     echo "<div class='codedeploy'>">>$TARGET_FILE
     echo '<hr/>'>>$TARGET_FILE 
-    echo "<h2>CodeDeploy Details</h2>">>$TARGET_FILE
     echo "<p>">>$TARGET_FILE
     echo "APPLICATION_NAME:$APPLICATION_NAME<br>">>$TARGET_FILE
     echo "DEPLOYMENT_ID:$DEPLOYMENT_ID<br>">>$TARGET_FILE
     echo "DEPLOYMENT_GROUP_NAME:$DEPLOYMENT_GROUP_NAME<br>">>$TARGET_FILE
-    echo "DEPLOYMENT_GROUP_ID:$DEPLOYMENT_GROUP_ID<br>">>$TARGET_FILE
+    echo "public_ip:$public_ip<br>">>$TARGET_FILE
+    echo "host_name:$host_name<br>">>$TARGET_FILE
+    echo "instance_id:$instance_id<br>">>$TARGET_FILE
 fi
 
 echo "LIFECYCLE_EVENT:$LIFECYCLE_EVENT<br>">>$TARGET_FILE
