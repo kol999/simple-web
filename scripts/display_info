@@ -17,7 +17,7 @@ echo TARGET_FILE IS $TARGET_FILE
 
 public_ip=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 host_name=$(curl http://169.254.169.254/latest/meta-data/local-hostname) 
-instance_id=$(curl http://169.254.169.254/latest/meta-data/instanceId)
+instance_id=$(curl http://169.254.169.254/latest/meta-data/instance-id)
 
 sed -i 's/<\/body>//g' $TARGET_FILE 
 sed -i 's/<\/html>//g' $TARGET_FILE 
